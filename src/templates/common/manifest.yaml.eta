@@ -1,0 +1,21 @@
+name: "<%= props.name %>"
+version: "0.0.1"
+description: "<%= props.description %>"
+author: "<%= props.author %> <<%= props.email %>>"
+
+label:
+<% for (const locale of props.locales) { -%>
+  <%= locale %>: "<%= props.name %>"
+<% } -%>
+
+meta:
+  icon: "assets/icon.svg"
+  license: "license.md"
+  privacy: "privacy.md"
+  language: "<%= props.language %>"
+  created_at: "<%= props.createdAt %>"
+  
+permissions:
+<% for (const permission of props.permissions) { -%>
+  <%= permission.scope %>: ["<%= permission.entries.join("\", \"") %>"]
+<% } -%>

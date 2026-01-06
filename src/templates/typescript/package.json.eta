@@ -1,0 +1,36 @@
+{
+  "name": "<%= props.name %>",
+  "version": "<%= props.version %>",
+  "description": "<%= props.description %>",
+  "author": "<%= props.author %> <<%= props.email %>>",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "check": "biome check --write .",
+    "dev": "tsdown --watch",
+    "prepublishOnly": "pnpm run build",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^4"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "bumpp": "^10",
+    "tsdown": "0.18.1",
+    "typescript": "^4",
+    "vitest": "^4"
+  }
+}
