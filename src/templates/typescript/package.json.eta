@@ -19,7 +19,7 @@
     "build": "tsdown",
     "check": "biome check --write .",
     "dev": "tsdown --watch",
-    "prepublishOnly": "pnpm run build",
+    "prepublishOnly": "npm run build",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
