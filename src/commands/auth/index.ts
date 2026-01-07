@@ -1,6 +1,6 @@
 import { Command } from "@oclif/core"
 
-export default class Plugin extends Command {
+export default class Auth extends Command {
   static override description = "Manages your plugin via subcommands"
 
   static override enableJsonFlag = true
@@ -15,6 +15,6 @@ export default class Plugin extends Command {
   static override hidden = true
 
   public async run(): Promise<void> {
-    await this.config.runCommand("help", ["plugin"])
+    await this.config.runCommand("help", ["auth"])
   }
 }
