@@ -20,7 +20,7 @@ $ npm install -g automation-plugin-cli
 $ automation COMMAND
 running command...
 $ automation (--version)
-automation-plugin-cli/0.0.0 darwin-arm64 node-v24.12.0
+automation-plugin-cli/0.0.1-0 darwin-arm64 node-v24.12.0
 $ automation --help [COMMAND]
 USAGE
   $ automation COMMAND
@@ -111,7 +111,7 @@ EXAMPLES
   $ automation plugin checksum
 ```
 
-_See code: [src/commands/plugin/checksum.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.0.0/src/commands/plugin/checksum.ts)_
+_See code: [src/commands/plugin/checksum.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.0.1-0/src/commands/plugin/checksum.ts)_
 
 ## `automation plugin init`
 
@@ -153,7 +153,7 @@ EXAMPLES
     $ automation plugin init
 ```
 
-_See code: [src/commands/plugin/init.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.0.0/src/commands/plugin/init.ts)_
+_See code: [src/commands/plugin/init.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.0.1-0/src/commands/plugin/init.ts)_
 
 ## `automation plugin pack [FILE]`
 
@@ -177,7 +177,7 @@ EXAMPLES
   $ automation plugin pack
 ```
 
-_See code: [src/commands/plugin/pack.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.0.0/src/commands/plugin/pack.ts)_
+_See code: [src/commands/plugin/pack.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.0.1-0/src/commands/plugin/pack.ts)_
 
 ## `automation plugin permission [FILE]`
 
@@ -201,7 +201,7 @@ EXAMPLES
   $ automation plugin permission
 ```
 
-_See code: [src/commands/plugin/permission.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.0.0/src/commands/plugin/permission.ts)_
+_See code: [src/commands/plugin/permission.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.0.1-0/src/commands/plugin/permission.ts)_
 
 ## `automation plugin run [FILE]`
 
@@ -225,7 +225,7 @@ EXAMPLES
   $ automation plugin run
 ```
 
-_See code: [src/commands/plugin/run.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.0.0/src/commands/plugin/run.ts)_
+_See code: [src/commands/plugin/run.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.0.1-0/src/commands/plugin/run.ts)_
 
 ## `automation version`
 
