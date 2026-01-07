@@ -1,21 +1,24 @@
 {
   "name": "@choiceopen/automation-plugin-cli",
-  "version": "0.0.1-2",
+  "version": "0.0.1",
   "description": "A command-line utility for building and publishing Choiceform Automation Plugin.",
   "keywords": [
     "oclif"
   ],
   "homepage": "https://github.com/choice-open/automation-plugin-cli",
   "bugs": "https://github.com/choice-open/automation-plugin-cli/issues",
-  "repository": "choice-open/automation-plugin-cli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choice-open/automation-plugin-cli.git"
+  },
   "license": "MIT",
   "author": "Albert Yu",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "automation": "./bin/run.js",
-    "cap": "./bin/run.js"
+    "automation": "bin/run.js",
+    "cap": "bin/run.js"
   },
   "files": [
     "./bin",
@@ -28,7 +31,7 @@
     "prepack": "oclif manifest && oclif readme",
     "postpack": "shx rm -f oclif.manifest.json",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
-    "posttest": "pnpm run check",
+    "posttest": "npm run check",
     "version": "oclif readme && git add README.md"
   },
   "oclif": {
