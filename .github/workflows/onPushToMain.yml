@@ -54,3 +54,4 @@ jobs:
           commit: ${{ github.ref_name }}
           token: ${{ secrets.GITHUB_TOKEN }}
           skipIfReleaseExists: true
+          draft: false
