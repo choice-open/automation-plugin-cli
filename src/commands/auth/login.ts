@@ -31,12 +31,15 @@ export default class AuthLogin extends Command {
 
   private grant_type = "urn:ietf:params:oauth:grant-type:device_code"
 
+  private declare endpoint: string
+
   public async run(): Promise<void> {
     await this.parse(AuthLogin)
 
     const config = await configStore.load()
     assert(config.auth?.endpoint, "Auth endpoint is required")
-    const payload = await this.requestDeviceCode(config.auth.endpoint)
+    this.endpoint = config.auth.endpoint
+    const payload = await this.requestDeviceCode(this.endpoint)
 
     this.log(
       colorize("yellowBright", "Starting device authorization flow...\n"),
@@ -53,9 +56,9 @@ export default class AuthLogin extends Command {
 
     const autoOpen = await confirm({
       message: dedent`
-      Do you want to open the verification URL in your browser automatically?
-        If not, you can manually open the URL and paste the code.
-    `,
+        Do you want to open the verification URL in your browser automatically?
+          If not, you can manually open the URL and paste the code.
+      `,
     })
 
     if (autoOpen) {
@@ -70,7 +73,7 @@ export default class AuthLogin extends Command {
     )) as Record<string, string>
     await configStore.update({ auth: { access_token: result.access_token } })
 
-    const session = await fetch(`${config.auth.endpoint}/v1/auth/get-session`, {
+    const session = await fetch(`${this.endpoint}/v1/auth/get-session`, {
       headers: {
         "Content-Type": "application/json",
         "User-Agent": "Choiceform (Automation Plugin CLI)",
@@ -82,10 +85,10 @@ export default class AuthLogin extends Command {
       colorize(
         "greenBright",
         dedent`
-      Welcome back, ${session.user.name} <${session.user.email}>!
-      To create a new plugin, you can use the following command:
-      \`${colorize("bold", colorize("yellowBright", "automation plugin init"))}\`
-    `,
+          Welcome back, ${session.user.name} <${session.user.email}>!
+          To create a new plugin, you can use the following command:
+          \`${colorize("bold", colorize("yellowBright", "automation plugin init"))}\`
+        `,
       ),
     )
   }
@@ -106,21 +109,18 @@ export default class AuthLogin extends Command {
   private async pollForToken(device_code: string, spinner: Spinner) {
     return new Promise((resolve) => {
       const poll = async () => {
-        const response = await fetch(
-          "http://localhost:5001/v1/auth/device/token",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "User-Agent": "Choiceform (Automation Plugin CLI)",
-            },
-            body: JSON.stringify({
-              grant_type: this.grant_type,
-              client_id: this.client_id,
-              device_code,
-            }),
+        const response = await fetch(`${this.endpoint}/v1/auth/device/token`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "User-Agent": "Choiceform (Automation Plugin CLI)",
           },
-        )
+          body: JSON.stringify({
+            grant_type: this.grant_type,
+            client_id: this.client_id,
+            device_code,
+          }),
+        })
 
         const payload = (await response.json()) as Record<string, string>
 

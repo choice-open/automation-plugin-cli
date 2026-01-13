@@ -1,5 +1,5 @@
 import path from "node:path"
-import checkbox, { Separator } from "@inquirer/checkbox"
+import checkbox from "@inquirer/checkbox"
 import input from "@inquirer/input"
 import select from "@inquirer/select"
 import { Command, Flags } from "@oclif/core"
@@ -15,17 +15,6 @@ type CommandFlags = OutputFlags<typeof PluginInit.flags>
 
 const LOCALES = ["en_US", "zh_Hans", "ja_JP"]
 const LANGUAGES = ["elixir", "python", "typescript"]
-const PERMISSIONS = [
-  "endpoints:register",
-  "model:call_llm",
-  "model:call_embedding",
-  "model:call_moderation",
-  "model:call_rerank",
-  "model:call_stt",
-  "model:call_tts",
-  "storage:kv",
-  "tools:invoke",
-]
 
 export default class PluginInit extends Command {
   static override description = dedent`
@@ -97,14 +86,6 @@ export default class PluginInit extends Command {
       char: "t",
       summary: "Plugin type",
     }),
-    permissions: Flags.option({
-      multiple: true,
-      options: PERMISSIONS,
-    })({
-      char: "p",
-      delimiter: ",",
-      summary: "Permissions required by the plugin",
-    }),
   }
 
   public async run(): Promise<void> {
@@ -165,7 +146,6 @@ export default class PluginInit extends Command {
       flags.locales = await this.collectLocales(flags)
       flags.language = await this.collectLanguage()
       flags.type = await this.collectType()
-      flags.permissions = await this.collectPermissions(flags)
     } catch (error) {
       if (error instanceof Error && error.name === "ExitPromptError") {
         process.exit(0)
@@ -332,66 +312,6 @@ export default class PluginInit extends Command {
         Please select the matching type from the following options:
       `,
       theme: selectTheme,
-    })
-  }
-
-  private async collectPermissions(flags: CommandFlags) {
-    return await checkbox({
-      choices: [
-        new Separator(colorize("yellowBright", " ⎯⎯⎯⎯⎯  Endpoints ⎯⎯⎯⎯⎯")),
-        {
-          checked: flags.permissions?.includes("endpoints:register"),
-          value: "endpoints:register",
-          description: "Ability to register API endpoints",
-        },
-        new Separator(colorize("yellowBright", " ⎯⎯⎯⎯⎯    Model   ⎯⎯⎯⎯⎯")),
-        {
-          checked: flags.permissions?.includes("model:call_llm"),
-          value: "model:call_llm",
-          description: "Ability to call LLMs",
-        },
-        {
-          checked: flags.permissions?.includes("model:call_embedding"),
-          value: "model:call_embedding",
-          description: "Ability to call embeddings models",
-        },
-        {
-          checked: flags.permissions?.includes("model:call_moderation"),
-          value: "model:call_moderation",
-          description: "Ability to call moderation models",
-        },
-        {
-          checked: flags.permissions?.includes("model:call_rerank"),
-          value: "model:call_rerank",
-          description: "Ability to call rerank models",
-        },
-        {
-          checked: flags.permissions?.includes("model:call_stt"),
-          value: "model:call_stt",
-          description: "Ability to call STT models",
-        },
-        {
-          checked: flags.permissions?.includes("model:call_tts"),
-          value: "model:call_tts",
-          description: "Ability to call TTS models",
-        },
-        new Separator(colorize("yellowBright", " ⎯⎯⎯⎯⎯   Storage  ⎯⎯⎯⎯⎯")),
-        {
-          checked: flags.permissions?.includes("storage:kv"),
-          value: "storage:kv",
-          description: "Ability to use key-value storage",
-        },
-        new Separator(colorize("yellowBright", " ⎯⎯⎯⎯⎯    Tools   ⎯⎯⎯⎯⎯")),
-        {
-          checked: flags.permissions?.includes("tools:invoke"),
-          value: "tools:invoke",
-          description: "Ability to invoke other tools",
-        },
-      ],
-      loop: false,
-      pageSize: 15,
-      message: "Select required permissions for the plugin:",
-      theme: checkboxTheme,
     })
   }
 }
