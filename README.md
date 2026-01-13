@@ -29,10 +29,8 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`automation auth login`](#automation-auth-login)
 * [`automation autocomplete [SHELL]`](#automation-autocomplete-shell)
 * [`automation help [COMMAND]`](#automation-help-command)
-* [`automation plugin refresh-key`](#automation-plugin-refresh-key)
 * [`automation version`](#automation-version)
 
 ## `automation auth login`
