@@ -13,7 +13,7 @@
 
 ## `config.ts` - 配置管理
 
-管理 CLI 的本地配置文件 (`~/.choiceform/automation.json`)。
+管理 CLI 的本地配置文件 (`~/.choiceform/atomemo.json`)。
 
 **配置 Schema**：
 
@@ -22,6 +22,9 @@
   auth?: {
     endpoint?: string   // 认证服务端点
     access_token?: string // 访问令牌
+  },
+  hub?: {
+    endpoint?: string   // Hub API 端点
   }
 }
 ```

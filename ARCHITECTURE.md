@@ -262,13 +262,16 @@ interface PluginGenerator {
 }
 ```
 
-### 本地配置 (`~/.choiceform/automation.json`)
+### 本地配置 (`~/.choiceform/atomemo.json`)
 
 ```json
 {
   "auth": {
     "endpoint": "https://oneauth.choiceform.io",
     "access_token": "eyJ..."
+  },
+  "hub": {
+    "endpoint": "https://automation-plugin-api.choiceform.io"
   }
 }
 ```

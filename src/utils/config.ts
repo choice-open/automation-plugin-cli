@@ -9,7 +9,7 @@ function getConfigDir(): string {
 }
 
 function getConfigFile(): string {
-  return join(getConfigDir(), "automation.json")
+  return join(getConfigDir(), "atomemo.json")
 }
 
 const ConfigSchema = z.object({
@@ -17,6 +17,11 @@ const ConfigSchema = z.object({
     .object({
       endpoint: z.url().optional(),
       access_token: z.string().optional(),
+    })
+    .optional(),
+  hub: z
+    .object({
+      endpoint: z.url().optional(),
     })
     .optional(),
 })
@@ -46,7 +51,13 @@ export async function load(): Promise<Config> {
           endpoint:
             process.env.NODE_ENV === "production"
               ? "https://oneauth.choiceform.io"
-              : "http://localhost:5001",
+              : "https://oneauth.choiceform.io",
+        },
+        hub: {
+          endpoint:
+            process.env.NODE_ENV === "production"
+              ? "https://automation-plugin-api.choiceform.io"
+              : "https://automation-plugin-api.choiceform.io",
         },
       }
       await save(defaultConfig)

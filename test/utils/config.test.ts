@@ -50,7 +50,7 @@ describe("config", () => {
 
       await config.save(testConfig)
 
-      const testConfigFile = join(testConfigDir, "automation.json")
+      const testConfigFile = join(testConfigDir, "atomemo.json")
       const content = await fs.readFile(testConfigFile, "utf-8")
       const parsed = JSON.parse(content)
       expect(parsed).to.deep.equal(testConfig)
@@ -58,7 +58,7 @@ describe("config", () => {
 
     it("should create directory if not exists", async () => {
       const testConfigDir2 = join(tmpdir(), `choiceform-test-${Date.now()}`)
-      const testConfigFile2 = join(testConfigDir2, "automation.json")
+      const testConfigFile2 = join(testConfigDir2, "atomemo.json")
 
       process.env.CHOICEFORM_CONFIG_DIR = testConfigDir2
 
@@ -129,7 +129,7 @@ describe("config", () => {
         },
       }
 
-      const testConfigFile = join(testConfigDir, "automation.json")
+      const testConfigFile = join(testConfigDir, "atomemo.json")
       await fs.writeFile(
         testConfigFile,
         JSON.stringify(testConfig, null, 2),
@@ -151,7 +151,7 @@ describe("config", () => {
         },
       })
 
-      const testConfigFile = join(testConfigDir, "automation.json")
+      const testConfigFile = join(testConfigDir, "atomemo.json")
       const exists = await fs
         .access(testConfigFile)
         .then(() => true)
@@ -168,7 +168,7 @@ describe("config", () => {
       process.env.NODE_ENV = "production"
 
       // 删除配置文件以触发创建默认配置
-      const testConfigFile = join(testConfigDir, "automation.json")
+      const testConfigFile = join(testConfigDir, "atomemo.json")
       try {
         await fs.unlink(testConfigFile)
       } catch {
@@ -197,7 +197,7 @@ describe("config", () => {
         },
       }
 
-      const testConfigFile = join(testConfigDir, "automation.json")
+      const testConfigFile = join(testConfigDir, "atomemo.json")
       await fs.writeFile(
         testConfigFile,
         JSON.stringify(invalidConfig, null, 2),
@@ -214,7 +214,7 @@ describe("config", () => {
 
     it("should handle empty config", async () => {
       const emptyConfig = {}
-      const testConfigFile = join(testConfigDir, "automation.json")
+      const testConfigFile = join(testConfigDir, "atomemo.json")
       await fs.writeFile(
         testConfigFile,
         JSON.stringify(emptyConfig, null, 2),

@@ -8,6 +8,7 @@
 |------|------|------|
 | `index.ts` | 命令组入口，显示帮助信息（隐藏命令） | ✅ 完成 |
 | `init.ts` | 交互式初始化新插件项目 | ✅ 完成 |
+| `refresh-key.ts` | 刷新插件开发调试 API Key | ✅ 完成 |
 | `checksum.ts` | 计算插件包校验和 | 🚧 待实现 |
 | `pack.ts` | 打包插件 | 🚧 待实现 |
 | `permission.ts` | 管理插件权限 | 🚧 待实现 |
@@ -35,6 +36,10 @@
 | Model (LLM) | 引入更多大语言模型 |
 | Tool | 执行特定任务，供 LLM/Agent 调用 |
 | Trigger | 通过 Webhook 接收事件启动工作流 |
+
+### `refresh-key.ts` - 刷新调试 API Key
+
+获取或刷新插件开发调试所需的 API Key，有效期为 1 天。
 
 ## 依赖关系
 

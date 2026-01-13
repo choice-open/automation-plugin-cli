@@ -15,6 +15,7 @@ export default class Plugin extends Command {
   static override hidden = true
 
   public async run(): Promise<void> {
+    await this.parse(Plugin)
     await this.config.runCommand("help", ["plugin"])
   }
 }
