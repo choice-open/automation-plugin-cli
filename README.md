@@ -20,7 +20,7 @@ $ npm install -g @choiceopen/automation-plugin-cli
 $ automation COMMAND
 running command...
 $ automation (--version)
-@choiceopen/automation-plugin-cli/0.1.3 linux-x64 node-v20.19.6
+@choiceopen/automation-plugin-cli/0.1.3 darwin-arm64 node-v24.13.0
 $ automation --help [COMMAND]
 USAGE
   $ automation COMMAND
