@@ -11,7 +11,9 @@ Choiceform Automation 平台的插件开发命令行工具。
 | 功能 | 命令 | 状态 |
 |------|------|------|
 | 设备授权登录 | `automation auth login` | ✅ 完成 |
+| 鉴权状态查询 | `automation auth status` | ✅ 完成 |
 | 初始化插件项目 | `automation plugin init` | ✅ 完成 |
+| 刷新调试密钥 | `automation plugin refresh-key` | ✅ 完成 |
 | 校验和计算 | `automation plugin checksum` | 🚧 待实现 |
 | 打包插件 | `automation plugin pack` | 🚧 待实现 |
 | 权限管理 | `automation plugin permission` | 🚧 待实现 |
@@ -69,8 +71,10 @@ flowchart TB
     end
 
     subgraph Commands["命令层"]
-        AUTH["auth/login"]
+        AUTH_LOGIN["auth/login"]
+        AUTH_STATUS["auth/status"]
         INIT["plugin/init"]
+        REFRESH["plugin/refresh-key"]
         OTHER["plugin/*"]
     end
 
@@ -82,6 +86,7 @@ flowchart TB
 
     subgraph External["外部服务"]
         ONEAUTH["OneAuth API"]
+        HUB["Plugin Hub API"]
         FS["文件系统"]
     end
 
@@ -91,8 +96,13 @@ flowchart TB
     DISCOVER --> PARSE
     PARSE --> Commands
 
-    AUTH --> CONFIG
-    AUTH --> ONEAUTH
+    AUTH_LOGIN --> CONFIG
+    AUTH_LOGIN --> ONEAUTH
+    AUTH_STATUS --> CONFIG
+    AUTH_STATUS --> ONEAUTH
+    REFRESH --> CONFIG
+    REFRESH --> HUB
+    REFRESH --> FS
     INIT --> GEN
     INIT --> THEME
     GEN --> FS
@@ -105,7 +115,9 @@ flowchart TB
 flowchart LR
     subgraph Commands
         LOGIN["auth/login.ts"]
+        STATUS["auth/status.ts"]
         INIT["plugin/init.ts"]
+        REFRESH_KEY["plugin/refresh-key.ts"]
     end
 
     subgraph Utils
@@ -120,6 +132,8 @@ flowchart LR
     end
 
     LOGIN --> CONFIG
+    STATUS --> CONFIG
+    REFRESH_KEY --> CONFIG
     INIT --> GEN
     INIT --> THEME
     GEN --> COMMON
@@ -284,7 +298,6 @@ interface PluginGenerator {
 - [ ] 实现 `plugin pack` - 打包插件为发布格式
 - [ ] 实现 `plugin permission` - 交互式权限配置
 - [ ] 实现 `plugin run` - 本地开发服务器
-- [ ] 实现 `auth status` - 查看当前的鉴权状态
 - [ ] 添加 `elixir` 插件模板
 - [ ] 添加 `python` 插件模板
 
