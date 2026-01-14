@@ -38,8 +38,8 @@ describe("plugin refresh-key", () => {
 
   it("当没有访问令牌时显示错误信息", async () => {
     const { stdout } = await runCommand("plugin refresh-key")
-    expect(stdout).to.contain("未找到访问令牌")
-    expect(stdout).to.contain("请先运行 'atomemo auth login'")
+    expect(stdout).to.contain("You're not authenticated yet")
+    expect(stdout).to.contain("please run 'atomemo auth login'")
   })
 
   it("当访问令牌无效时显示错误信息", async () => {
@@ -49,10 +49,13 @@ describe("plugin refresh-key", () => {
         endpoint: "https://oneauth.choiceform.io",
         access_token: "invalid_token_123",
       },
+      hub: {
+        endpoint: "https://automation-plugin-api.choiceform.io",
+      },
     })
 
     const { stdout } = await runCommand("plugin refresh-key")
-    expect(stdout).to.contain("刷新调试 API Key 失败")
+    expect(stdout).to.contain("Failed to refresh debug API Key")
   })
 
   it("成功时创建新的 .env 文件", async () => {
