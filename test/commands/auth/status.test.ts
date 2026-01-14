@@ -21,7 +21,7 @@ describe("auth status", () => {
   it("shows not authenticated message when no access token", async () => {
     const { stdout } = await runCommand("auth status")
     expect(stdout).to.contain("Your device has not been authenticated yet")
-    expect(stdout).to.contain("automation auth login")
+    expect(stdout).to.contain("atomemo auth login")
   })
 
   it("handles invalid or expired token gracefully", async () => {

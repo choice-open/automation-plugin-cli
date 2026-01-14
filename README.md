@@ -1,7 +1,7 @@
-automation-plugin-cli
+atomemo-plugin-cli
 =================
 
-A command-line utility for building and publishing Choiceform Automation Plugin.
+A command-line utility for building and publishing Choiceform Atomemo Plugin.
 
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
@@ -17,37 +17,37 @@ A command-line utility for building and publishing Choiceform Automation Plugin.
 <!-- usage -->
 ```sh-session
 $ npm install -g @choiceopen/automation-plugin-cli
-$ automation COMMAND
+$ atomemo COMMAND
 running command...
-$ automation (--version)
+$ atomemo (--version)
 @choiceopen/automation-plugin-cli/0.2.0 darwin-arm64 node-v24.13.0
-$ automation --help [COMMAND]
+$ atomemo --help [COMMAND]
 USAGE
-  $ automation COMMAND
+  $ atomemo COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`automation auth login`](#automation-auth-login)
-* [`automation auth status`](#automation-auth-status)
-* [`automation autocomplete [SHELL]`](#automation-autocomplete-shell)
-* [`automation help [COMMAND]`](#automation-help-command)
-* [`automation plugin checksum [FILE]`](#automation-plugin-checksum-file)
-* [`automation plugin init`](#automation-plugin-init)
-* [`automation plugin pack [FILE]`](#automation-plugin-pack-file)
-* [`automation plugin permission [FILE]`](#automation-plugin-permission-file)
-* [`automation plugin refresh-key`](#automation-plugin-refresh-key)
-* [`automation plugin run [FILE]`](#automation-plugin-run-file)
-* [`automation version`](#automation-version)
+* [`atomemo auth login`](#atomemo-auth-login)
+* [`atomemo auth status`](#atomemo-auth-status)
+* [`atomemo autocomplete [SHELL]`](#atomemo-autocomplete-shell)
+* [`atomemo help [COMMAND]`](#atomemo-help-command)
+* [`atomemo plugin checksum [FILE]`](#atomemo-plugin-checksum-file)
+* [`atomemo plugin init`](#atomemo-plugin-init)
+* [`atomemo plugin pack [FILE]`](#atomemo-plugin-pack-file)
+* [`atomemo plugin permission [FILE]`](#atomemo-plugin-permission-file)
+* [`atomemo plugin refresh-key`](#atomemo-plugin-refresh-key)
+* [`atomemo plugin run [FILE]`](#atomemo-plugin-run-file)
+* [`atomemo version`](#atomemo-version)
 
-## `automation auth login`
+## `atomemo auth login`
 
 Uses device authorization flow to login with your Choiceform account by following these steps:
 
 ```
 USAGE
-  $ automation auth login
+  $ atomemo auth login
 
 DESCRIPTION
   Uses device authorization flow to login with your Choiceform account by following these steps:
@@ -60,18 +60,18 @@ DESCRIPTION
 EXAMPLES
   Login by using device authorization flow
 
-    $ automation auth login
+    $ atomemo auth login
 ```
 
 _See code: [src/commands/auth/login.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.2.0/src/commands/auth/login.ts)_
 
-## `automation auth status`
+## `atomemo auth status`
 
 Display the current authentication status.
 
 ```
 USAGE
-  $ automation auth status
+  $ atomemo auth status
 
 DESCRIPTION
   Display the current authentication status.
@@ -82,18 +82,18 @@ DESCRIPTION
 EXAMPLES
   Check current authentication status
 
-    $ automation auth status
+    $ atomemo auth status
 ```
 
 _See code: [src/commands/auth/status.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.2.0/src/commands/auth/status.ts)_
 
-## `automation autocomplete [SHELL]`
+## `atomemo autocomplete [SHELL]`
 
 Display autocomplete installation instructions.
 
 ```
 USAGE
-  $ automation autocomplete [SHELL] [-r]
+  $ atomemo autocomplete [SHELL] [-r]
 
 ARGUMENTS
   [SHELL]  (zsh|bash|powershell) Shell type
@@ -105,26 +105,26 @@ DESCRIPTION
   Display autocomplete installation instructions.
 
 EXAMPLES
-  $ automation autocomplete
+  $ atomemo autocomplete
 
-  $ automation autocomplete bash
+  $ atomemo autocomplete bash
 
-  $ automation autocomplete zsh
+  $ atomemo autocomplete zsh
 
-  $ automation autocomplete powershell
+  $ atomemo autocomplete powershell
 
-  $ automation autocomplete --refresh-cache
+  $ atomemo autocomplete --refresh-cache
 ```
 
 _See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v3.2.39/src/commands/autocomplete/index.ts)_
 
-## `automation help [COMMAND]`
+## `atomemo help [COMMAND]`
 
-Display help for automation.
+Display help for atomemo.
 
 ```
 USAGE
-  $ automation help [COMMAND...] [-n]
+  $ atomemo help [COMMAND...] [-n]
 
 ARGUMENTS
   [COMMAND...]  Command to show help for.
@@ -133,18 +133,18 @@ FLAGS
   -n, --nested-commands  Include all nested commands in the output.
 
 DESCRIPTION
-  Display help for automation.
+  Display help for atomemo.
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.36/src/commands/help.ts)_
 
-## `automation plugin checksum [FILE]`
+## `atomemo plugin checksum [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ automation plugin checksum [FILE] [-f] [-n <value>]
+  $ atomemo plugin checksum [FILE] [-f] [-n <value>]
 
 ARGUMENTS
   [FILE]  file to read
@@ -157,18 +157,18 @@ DESCRIPTION
   describe the command here
 
 EXAMPLES
-  $ automation plugin checksum
+  $ atomemo plugin checksum
 ```
 
 _See code: [src/commands/plugin/checksum.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.2.0/src/commands/plugin/checksum.ts)_
 
-## `automation plugin init`
+## `atomemo plugin init`
 
 Initialize a new plugin with step-by-step interactive instructions.
 
 ```
 USAGE
-  $ automation plugin init [-i] [-n my-awesome-plugin] [-d Descriptive
+  $ atomemo plugin init [-i] [-n my-awesome-plugin] [-d Descriptive
     text...] [-a John Doe] [-e john.doe@example.com] [-u <value>] [--locales en_US|zh_Hans|ja_JP...] [-l
     elixir|python|typescript] [-t extension|llm|tool|trigger]
 
@@ -194,18 +194,18 @@ DESCRIPTION
 EXAMPLES
   Start with interactive initialization:
 
-    $ automation plugin init
+    $ atomemo plugin init
 ```
 
 _See code: [src/commands/plugin/init.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.2.0/src/commands/plugin/init.ts)_
 
-## `automation plugin pack [FILE]`
+## `atomemo plugin pack [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ automation plugin pack [FILE] [-f] [-n <value>]
+  $ atomemo plugin pack [FILE] [-f] [-n <value>]
 
 ARGUMENTS
   [FILE]  file to read
@@ -218,18 +218,18 @@ DESCRIPTION
   describe the command here
 
 EXAMPLES
-  $ automation plugin pack
+  $ atomemo plugin pack
 ```
 
 _See code: [src/commands/plugin/pack.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.2.0/src/commands/plugin/pack.ts)_
 
-## `automation plugin permission [FILE]`
+## `atomemo plugin permission [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ automation plugin permission [FILE] [-f] [-n <value>]
+  $ atomemo plugin permission [FILE] [-f] [-n <value>]
 
 ARGUMENTS
   [FILE]  file to read
@@ -242,35 +242,35 @@ DESCRIPTION
   describe the command here
 
 EXAMPLES
-  $ automation plugin permission
+  $ atomemo plugin permission
 ```
 
 _See code: [src/commands/plugin/permission.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.2.0/src/commands/plugin/permission.ts)_
 
-## `automation plugin refresh-key`
+## `atomemo plugin refresh-key`
 
 Refresh or create API Key for plugin debugging in development stage.
 
 ```
 USAGE
-  $ automation plugin refresh-key
+  $ atomemo plugin refresh-key
 
 DESCRIPTION
   Refresh or create API Key for plugin debugging in development stage.
 
 EXAMPLES
-  $ automation plugin refresh-key
+  $ atomemo plugin refresh-key
 ```
 
 _See code: [src/commands/plugin/refresh-key.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.2.0/src/commands/plugin/refresh-key.ts)_
 
-## `automation plugin run [FILE]`
+## `atomemo plugin run [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ automation plugin run [FILE] [-f] [-n <value>]
+  $ atomemo plugin run [FILE] [-f] [-n <value>]
 
 ARGUMENTS
   [FILE]  file to read
@@ -283,16 +283,16 @@ DESCRIPTION
   describe the command here
 
 EXAMPLES
-  $ automation plugin run
+  $ atomemo plugin run
 ```
 
 _See code: [src/commands/plugin/run.ts](https://github.com/choice-open/automation-plugin-cli/blob/v0.2.0/src/commands/plugin/run.ts)_
 
-## `automation version`
+## `atomemo version`
 
 ```
 USAGE
-  $ automation version [--json] [--verbose]
+  $ atomemo version [--json] [--verbose]
 
 FLAGS
   --verbose  Show additional information about the CLI.

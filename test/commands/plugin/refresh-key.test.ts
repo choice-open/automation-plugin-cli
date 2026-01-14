@@ -39,7 +39,7 @@ describe("plugin refresh-key", () => {
   it("当没有访问令牌时显示错误信息", async () => {
     const { stdout } = await runCommand("plugin refresh-key")
     expect(stdout).to.contain("未找到访问令牌")
-    expect(stdout).to.contain("请先运行 'automation auth login'")
+    expect(stdout).to.contain("请先运行 'atomemo auth login'")
   })
 
   it("当访问令牌无效时显示错误信息", async () => {

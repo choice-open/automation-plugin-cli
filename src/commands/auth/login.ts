@@ -27,7 +27,7 @@ export default class AuthLogin extends Command {
 
   private pollingInterval = 5
 
-  private client_id = "automation_plugin_cli"
+  private client_id = "atomemo_plugin_cli"
 
   private grant_type = "urn:ietf:params:oauth:grant-type:device_code"
 
@@ -76,7 +76,7 @@ export default class AuthLogin extends Command {
     const session = await fetch(`${this.endpoint}/v1/auth/get-session`, {
       headers: {
         "Content-Type": "application/json",
-        "User-Agent": "Choiceform (Automation Plugin CLI)",
+        "User-Agent": "Choiceform (Atomemo Plugin CLI)",
         Authorization: `Bearer ${result.access_token}`,
       },
     }).then((response) => response.json())
@@ -87,7 +87,7 @@ export default class AuthLogin extends Command {
         dedent`
           Welcome back, ${session.user.name} <${session.user.email}>!
           To create a new plugin, you can use the following command:
-          \`${colorize("bold", colorize("yellowBright", "automation plugin init"))}\`
+          \`${colorize("bold", colorize("yellowBright", "atomemo plugin init"))}\`
         `,
       ),
     )
@@ -98,7 +98,7 @@ export default class AuthLogin extends Command {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "User-Agent": "Choiceform (Automation Plugin CLI)",
+        "User-Agent": "Choiceform (Atomemo Plugin CLI)",
       },
       body: JSON.stringify({ client_id: this.client_id }),
     })
@@ -113,7 +113,7 @@ export default class AuthLogin extends Command {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "User-Agent": "Choiceform (Automation Plugin CLI)",
+            "User-Agent": "Choiceform (Atomemo Plugin CLI)",
           },
           body: JSON.stringify({
             grant_type: this.grant_type,

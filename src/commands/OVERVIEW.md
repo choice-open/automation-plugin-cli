@@ -22,12 +22,12 @@ commands/
 
 | 命令 | 文件 | 描述 |
 |------|------|------|
-| `automation auth login` | `auth/login.ts` | OAuth 2.0 设备授权登录 |
-| `automation plugin init` | `plugin/init.ts` | 交互式创建新插件 |
-| `automation plugin checksum` | `plugin/checksum.ts` | 计算插件校验和 |
-| `automation plugin pack` | `plugin/pack.ts` | 打包插件 |
-| `automation plugin permission` | `plugin/permission.ts` | 管理权限 |
-| `automation plugin run` | `plugin/run.ts` | 本地运行调试 |
+| `atomemo auth login` | `auth/login.ts` | OAuth 2.0 设备授权登录 |
+| `atomemo plugin init` | `plugin/init.ts` | 交互式创建新插件 |
+| `atomemo plugin checksum` | `plugin/checksum.ts` | 计算插件校验和 |
+| `atomemo plugin pack` | `plugin/pack.ts` | 打包插件 |
+| `atomemo plugin permission` | `plugin/permission.ts` | 管理权限 |
+| `atomemo plugin run` | `plugin/run.ts` | 本地运行调试 |
 
 ## 子目录
 

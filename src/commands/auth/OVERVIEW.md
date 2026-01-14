@@ -20,7 +20,7 @@
 2. **获取会话** - 调用 `/v1/auth/get-session` 获取会话详情
 3. **显示信息** - 展示用户名、邮箱、会话更新时间和过期时间
 
-**未鉴权时**：提示用户执行 `automation auth login`
+**未鉴权时**：提示用户执行 `atomemo auth login`
 
 ### `login.ts` - 设备授权登录
 

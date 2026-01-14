@@ -123,7 +123,7 @@ export default class PluginInit extends Command {
           "redBright",
           dedent`
             Without interactive mode, you should provide initial information manually.
-            Use ${colorize("blue", "automation help plugin init")} to see all available options.
+            Use ${colorize("blue", "atomemo help plugin init")} to see all available options.
           `,
         ),
       )
