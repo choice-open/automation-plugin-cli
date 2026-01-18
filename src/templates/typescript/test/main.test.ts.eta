@@ -1,6 +1,0 @@
-import { expect, test } from 'vitest'
-import { fn } from '../src'
-
-test("main", () => {
-  expect(fn()).toBe("Automation Plugin - <%= props.name %>")
-})

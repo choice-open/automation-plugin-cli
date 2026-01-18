@@ -1,8 +1,8 @@
-import { expect } from "chai"
-import { runCommand } from "@oclif/test"
 import { promises as fs } from "node:fs"
-import { join } from "node:path"
 import { tmpdir } from "node:os"
+import { join } from "node:path"
+import { runCommand } from "@oclif/test"
+import { expect } from "chai"
 import * as configStore from "../../../src/utils/config.js"
 
 describe("plugin refresh-key", () => {
@@ -14,10 +14,10 @@ describe("plugin refresh-key", () => {
     // 设置测试配置目录
     testConfigDir = join(tmpdir(), `choiceform-test-${Date.now()}`)
     process.env.CHOICEFORM_CONFIG_DIR = testConfigDir
-    
+
     // 保存原始工作目录
     originalCwd = process.cwd()
-    
+
     // 创建测试工作目录
     testDir = join(tmpdir(), `plugin-test-${Date.now()}`)
     await fs.mkdir(testDir, { recursive: true })
@@ -27,19 +27,19 @@ describe("plugin refresh-key", () => {
   afterEach(async () => {
     // 恢复原始工作目录
     process.chdir(originalCwd)
-    
+
     // 清理测试目录
     await fs.rm(testDir, { recursive: true, force: true })
     await fs.rm(testConfigDir, { recursive: true, force: true })
-    
+
     // 清理环境变量
     delete process.env.CHOICEFORM_CONFIG_DIR
   })
 
   it("当没有访问令牌时显示错误信息", async () => {
     const { stdout } = await runCommand("plugin refresh-key")
-    expect(stdout).to.contain("未找到访问令牌")
-    expect(stdout).to.contain("请先运行 'automation auth login'")
+    expect(stdout).to.contain("You're not authenticated yet")
+    expect(stdout).to.contain("please run 'atomemo auth login'")
   })
 
   it("当访问令牌无效时显示错误信息", async () => {
@@ -49,16 +49,19 @@ describe("plugin refresh-key", () => {
         endpoint: "https://oneauth.choiceform.io",
         access_token: "invalid_token_123",
       },
+      hub: {
+        endpoint: "https://automation-plugin-api.choiceform.io",
+      },
     })
 
     const { stdout } = await runCommand("plugin refresh-key")
-    expect(stdout).to.contain("刷新调试 API Key 失败")
+    expect(stdout).to.contain("Failed to refresh debug API Key")
   })
 
   it("成功时创建新的 .env 文件", async () => {
     // 注意：这个测试需要实际的访问令牌才能通过
     // 在实际环境中，我们需要 mock fetch 调用
-    
+
     // 创建有效的配置（在实际测试中需要有效的 token）
     await configStore.save({
       auth: {
@@ -69,7 +72,7 @@ describe("plugin refresh-key", () => {
 
     // 由于我们无法在单元测试中调用真实的 API，这里主要测试文件操作逻辑
     // 实际的 API 调用测试应该在集成测试中进行
-    
+
     // 验证 .env 文件不存在
     const envPath = join(testDir, ".env")
     try {
@@ -110,10 +113,10 @@ ANOTHER_KEY=value2`
     const readonlyDir = join(tmpdir(), `readonly-${Date.now()}`)
     await fs.mkdir(readonlyDir, { recursive: true })
     await fs.chmod(readonlyDir, 0o444) // 只读权限
-    
+
     const originalDir = process.cwd()
     process.chdir(readonlyDir)
-    
+
     try {
       // 尝试在只读目录中运行命令
       // 注意：这个测试可能需要根据实际环境调整
@@ -127,7 +130,7 @@ ANOTHER_KEY=value2`
   it("正确掩码显示 API Key", async () => {
     // 这个测试主要验证掩码函数的逻辑
     // 由于我们无法直接测试私有方法，可以通过输出验证
-    
+
     // 创建配置
     await configStore.save({
       auth: {

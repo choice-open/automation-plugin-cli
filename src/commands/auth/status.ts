@@ -39,7 +39,7 @@ export default class AuthStatus extends Command {
       this.log(
         colorize(
           "yellow",
-          "Your device has not been authenticated yet. Please execute `automation auth login`.",
+          "Your device has not been authenticated yet. Please execute `atomemo auth login`.",
         ),
       )
       return
@@ -75,7 +75,7 @@ export default class AuthStatus extends Command {
     const response = await fetch(`${endpoint}/v1/auth/get-session`, {
       headers: {
         "Content-Type": "application/json",
-        "User-Agent": "Choiceform (Automation Plugin CLI)",
+        "User-Agent": "Choiceform (Atomemo Plugin CLI)",
         Authorization: `Bearer ${accessToken}`,
       },
     })

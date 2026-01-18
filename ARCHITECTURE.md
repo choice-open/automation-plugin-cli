@@ -1,23 +1,23 @@
-# Automation Plugin CLI - Architecture
+# Atomemo Plugin CLI - Architecture
 
-Choiceform Automation 平台的插件开发命令行工具。
+Choiceform Atomemo 平台的插件开发命令行工具。
 
 ## 概述
 
-本项目是一个基于 [oclif](https://oclif.io/) 框架构建的 CLI 工具，用于创建、开发、打包和发布 Choiceform Automation 平台插件。
+本项目是一个基于 [oclif](https://oclif.io/) 框架构建的 CLI 工具，用于创建、开发、打包和发布 Choiceform Atomemo 平台插件。
 
 ### 主要功能
 
 | 功能 | 命令 | 状态 |
 |------|------|------|
-| 设备授权登录 | `automation auth login` | ✅ 完成 |
-| 鉴权状态查询 | `automation auth status` | ✅ 完成 |
-| 初始化插件项目 | `automation plugin init` | ✅ 完成 |
-| 刷新调试密钥 | `automation plugin refresh-key` | ✅ 完成 |
-| 校验和计算 | `automation plugin checksum` | 🚧 待实现 |
-| 打包插件 | `automation plugin pack` | 🚧 待实现 |
-| 权限管理 | `automation plugin permission` | 🚧 待实现 |
-| 本地运行 | `automation plugin run` | 🚧 待实现 |
+| 设备授权登录 | `atomemo auth login` | ✅ 完成 |
+| 鉴权状态查询 | `atomemo auth status` | ✅ 完成 |
+| 初始化插件项目 | `atomemo plugin init` | ✅ 完成 |
+| 刷新调试密钥 | `atomemo plugin refresh-key` | ✅ 完成 |
+| 校验和计算 | `atomemo plugin checksum` | 🚧 待实现 |
+| 打包插件 | `atomemo plugin pack` | 🚧 待实现 |
+| 权限管理 | `atomemo plugin permission` | 🚧 待实现 |
+| 本地运行 | `atomemo plugin run` | 🚧 待实现 |
 
 ### 技术栈
 
@@ -34,7 +34,7 @@ Choiceform Automation 平台的插件开发命令行工具。
 ## 目录结构
 
 ```
-automation-plugin-cli/
+atomemo-plugin-cli/
 ├── bin/                    # CLI 入口脚本
 │   ├── run.js              # 生产入口
 │   └── dev.js              # 开发入口 (ts-node)
@@ -151,7 +151,7 @@ sequenceDiagram
     participant Eta
     participant FS as 文件系统
 
-    User->>CLI: automation plugin init
+    User->>CLI: atomemo plugin init
     
     alt 交互模式
         CLI->>Inquirer: 收集插件信息
@@ -264,7 +264,7 @@ interface PluginGenerator {
 ```json
 {
   "oclif": {
-    "bin": "automation",
+    "bin": "atomemo",
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-autocomplete",

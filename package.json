@@ -1,7 +1,7 @@
 {
   "name": "@choiceopen/automation-plugin-cli",
-  "version": "0.2.0",
-  "description": "A command-line utility for building and publishing Choiceform Automation Plugin.",
+  "version": "0.2.2",
+  "description": "A command-line utility for building and publishing Choiceform Atomemo Plugin.",
   "keywords": [
     "oclif"
   ],
@@ -17,7 +17,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "automation": "bin/run.js",
+    "atomemo": "bin/run.js",
     "cap": "bin/run.js"
   },
   "files": [
@@ -36,12 +36,11 @@
   },
   "oclif": {
     "alias": [
-      "automation",
-      "cap"
+      "atomemo"
     ],
-    "bin": "automation",
+    "bin": "atomemo",
     "commands": "./dist/commands",
-    "dirname": "automation",
+    "dirname": "atomemo",
     "helpOptions": {
       "flagSortOrder": "none"
     },
@@ -54,10 +53,10 @@
     "topicSeparator": " "
   },
   "dependencies": {
-    "@inquirer/checkbox": "^5.0.3",
+    "@inquirer/checkbox": "^5.0.4",
     "@inquirer/confirm": "^6.0.3",
-    "@inquirer/input": "^5.0.3",
-    "@inquirer/select": "^5.0.3",
+    "@inquirer/input": "^5.0.4",
+    "@inquirer/select": "^5.0.4",
     "@oclif/core": "^4.8.0",
     "@oclif/plugin-autocomplete": "^3.2.39",
     "@oclif/plugin-help": "^6.2.36",
@@ -77,7 +76,7 @@
     "@types/node": "20.19.27",
     "chai": "4.5.0",
     "mocha": "10.8.2",
-    "oclif": "^4.22.63",
+    "oclif": "^4.22.65",
     "shx": "^0.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"

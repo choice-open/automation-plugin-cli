@@ -21,7 +21,7 @@ export default class PluginRefreshKey extends Command {
       this.log(
         colorize(
           "red",
-          "✗ You're not authenticated yet, please run 'automation auth login' first.",
+          "✗ You're not authenticated yet, please run 'atomemo auth login' first.",
         ),
       )
       return process.exit(1)
@@ -58,7 +58,7 @@ export default class PluginRefreshKey extends Command {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "User-Agent": "Choiceform (Automation Plugin CLI)",
+          "User-Agent": "Choiceform (Atomemo Plugin CLI)",
           Authorization: `Bearer ${accessToken}`,
         },
       },
