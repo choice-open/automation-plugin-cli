@@ -101,7 +101,12 @@ export default class PluginInit extends Command {
     assert(flags.language, "flags.language should be valid here...")
 
     const generator = createPluginGenerator(flags.language, {
-      props: { ...flags, createdAt: new Date().toISOString() },
+      props: {
+        ...flags,
+        createdAt: new Date().toISOString(),
+        date: new Date().toISOString().slice(0, 10),
+        year: new Date().getFullYear().toString(),
+      },
       target: path.join(process.cwd(), flags.name),
     })
 
