@@ -20,7 +20,7 @@ $ npm install -g @choiceopen/automation-plugin-cli
 $ atomemo COMMAND
 running command...
 $ atomemo (--version)
-@choiceopen/automation-plugin-cli/0.2.4 linux-x64 node-v20.19.6
+@choiceopen/automation-plugin-cli/0.2.5 darwin-arm64 node-v24.13.0
 $ atomemo --help [COMMAND]
 USAGE
   $ atomemo COMMAND
