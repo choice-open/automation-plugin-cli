@@ -28,6 +28,7 @@
   "scripts": {
     "build": "shx rm -rf dist && tsc --build && shx cp -r src/templates dist/",
     "check": "biome check --write",
+    "postinstall": "echo \"Please run 'atomemo auth login' first to ensure you have access to the Atomemo platform.\"",
     "prepack": "oclif manifest && oclif readme",
     "postpack": "shx rm -f oclif.manifest.json",
     "test": "mocha \"test/**/*.test.ts\"",
