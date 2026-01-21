@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.5.7] - 2026-01-21
+
 ### Added
 
 - `plugin init` 命令现在会在创建插件前检查当前路径下是否存在同名文件夹
@@ -191,7 +193,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Code quality checks with Biome.
 - Automated release workflow via GitHub Actions.
 
-[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.6...HEAD
+[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.7...HEAD
+[0.5.7]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.6...v0.5.7
 [0.5.6]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.5...v0.5.6
 [0.5.5]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.4...v0.5.5
 [0.5.4]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.3...v0.5.4
