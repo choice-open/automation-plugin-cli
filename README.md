@@ -203,8 +203,8 @@ Initialize a new plugin with step-by-step interactive instructions.
 
 ```
 USAGE
-  $ atomemo plugin init [-i] [-n my-awesome-plugin] [-d Descriptive text...] [-u <value>] [-l
-    elixir|python|typescript]
+  $ atomemo plugin init [-i] [-n my-awesome-plugin] [-d Descriptive text...]
+    [-u <value>] [-l elixir|python|typescript]
 
 FLAGS
   -d, --description=Descriptive text...  Short description
