@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.5.6] - 2026-01-21
+
+### Fixed
+
+- 更新 `createPlugin` 调用为异步方法（添加 `await` 关键字）
+- 移除 tsdown 配置中未使用的 `platform: "neutral"` 选项
+
 ## [0.5.5] - 2026-01-21
 
 ### Fixed
@@ -179,7 +186,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Code quality checks with Biome.
 - Automated release workflow via GitHub Actions.
 
-[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.5...HEAD
+[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.6...HEAD
+[0.5.6]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.5...v0.5.6
 [0.5.5]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.4...v0.5.5
 [0.5.4]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.3...v0.5.4
 [0.5.3]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.2...v0.5.3
