@@ -13,7 +13,7 @@ const plugin = createPlugin({
   description: t("PLUGIN_DESCRIPTION"),
   icon: "🎛️",
   version: packageJSON.version,
-  repo: <%= props.url %>,
+  repo: "<%= props.url %>",
   locales,
   transporterOptions: {},
 })
