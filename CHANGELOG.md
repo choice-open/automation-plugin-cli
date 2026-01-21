@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.5.2] - 2026-01-21
+
+### Fixed
+
+- Build script now removes `tsconfig.tsbuildinfo` file before compilation to ensure clean builds
+- Updated project architecture documentation date in template from 2026-01-18 to 2026-01-01
+
 ## [0.5.1] - 2026-01-21
 
 ### Changed
@@ -145,7 +152,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Code quality checks with Biome.
 - Automated release workflow via GitHub Actions.
 
-[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.1...HEAD
+[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.2...HEAD
+[0.5.2]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.1...v0.5.2
 [0.5.1]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.3.0...v0.4.0
