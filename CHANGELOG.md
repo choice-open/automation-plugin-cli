@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- `plugin init` 命令现在会在创建插件前检查当前路径下是否存在同名文件夹
+- 如果文件夹已存在，会显示红色警告信息并停止操作，防止意外覆盖已存在的文件
+
 ## [0.5.6] - 2026-01-21
 
 ### Fixed
