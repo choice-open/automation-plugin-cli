@@ -1,12 +1,12 @@
 # Credential Development Guide
 
-Credentials authenticate your plugin against external services.
-They serve two distinct roles depending on where they're used:
+Credentials define authentication information for third-party services such as API keys,
+base URLs, OAuth2 tokens, and client secrets.
 
-- **Model credentials**: The `authenticate()` function runs and returns adapter config
-  that Atomemo uses to route LLM API calls
-- **Tool credentials**: The `authenticate()` function does NOT run; credential fields
-  are passed directly to the tool's `invoke()` function as `args.credentials`
+They serve two distinct roles:
+
+- **Model authentication**: `authenticate()` runs and returns adapter config for LLM calls
+- **Tool authorization**: Raw credential fields are passed to `args.credentials`
 
 ## File Location
 
@@ -33,8 +33,8 @@ export const openaiCredential = {
       display_name: t("API_KEY_DISPLAY_NAME"),
       ui: {
         component: "input",
-        sensitive: true,       // masks the value with ••••••
-        placeholder: "sk-...",
+        sensitive: true,
+        placeholder: t("API_KEY_PLACEHOLDER"),
         hint: t("API_KEY_HINT")
       }
     },
@@ -47,13 +47,16 @@ export const openaiCredential = {
       ui: { component: "input" }
     }
   ],
-  // authenticate() is called for Model credentials only
-  async authenticate({ parameters }) {
+  async authenticate({ args: { credential, extra } }) {
+    const model = extra.model ?? "gpt-4"
+
     return {
-      adapter: "openai",                         // protocol type
-      endpoint: parameters.base_url,
+      adapter: "openai",
+      api_key: credential.api_key ?? "",
+      endpoint: credential.base_url || "https://api.openai.com/v1",
+      model,
       headers: {
-        Authorization: `Bearer ${parameters.api_key}`
+        Authorization: `Bearer ${credential.api_key}`
       }
     }
   }
@@ -69,7 +72,7 @@ export const openaiCredential = {
 | `description` | I18nText | Explains what service this credential connects to |
 | `icon` | string | Emoji or image URL |
 | `parameters` | Property[] | Fields the user fills in (API keys, URLs, etc.) |
-| `authenticate` | async function | Returns adapter config (for model credentials) |
+| `authenticate` | async function | Returns adapter config for model credentials |
 
 ## The `authenticate()` Function
 
@@ -77,12 +80,12 @@ Called only when the credential is used with a Model (not a Tool).
 Returns an object that tells Atomemo how to call the LLM API:
 
 ```typescript
-async authenticate({ parameters }) {
+async authenticate({ args: { credential, extra } }) {
   return {
-    adapter: "openai",      // "openai" | "anthropic" | "google" | "deepseek"
+    adapter: "openai",      // "openai" | "anthropic" | "google_ai" | "deepseek"
     endpoint: "https://api.openai.com/v1",
     headers: {
-      Authorization: `Bearer ${parameters.api_key}`
+      Authorization: `Bearer ${credential.api_key}`
     }
   }
 }
@@ -94,7 +97,7 @@ async authenticate({ parameters }) {
 |---------|---------|
 | `"openai"` | OpenAI API and compatible endpoints |
 | `"anthropic"` | Anthropic Claude API |
-| `"google"` | Google Gemini API |
+| `"google_ai"` | Google Gemini API |
 | `"deepseek"` | DeepSeek API |
 
 ## Using Credentials in Tools
@@ -123,6 +126,22 @@ async invoke({ args }) {
 ```
 
 Note: `authenticate()` is NOT called here. Raw credential fields flow directly.
+
+## OAuth2 Credentials
+
+If a provider uses OAuth2, set `oauth2: true` and include the required storage fields:
+
+- `access_token` (`encrypted_string`)
+- `refresh_token` (`encrypted_string`)
+- `expires_at` (`integer`)
+
+You must also implement:
+
+1. `oauth2_build_authorize_url`
+2. `oauth2_get_token`
+3. `oauth2_refresh_token`
+
+Those functions are responsible for the provider-specific authorization flow.
 
 ## Security Best Practices
 
