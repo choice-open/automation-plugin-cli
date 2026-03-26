@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- 模板新增 `src/tools/demo-skill.md` 文档，并在 `demoTool` 中加入 `skill` 字段以演示 Tool Skill 用法
+- TypeScript 模板新增 `src/types/markdown.d.ts`，为 `*.md` 文本导入提供类型声明
+
+### Changed
+
+- TypeScript 模板构建配置新增 `tsdown` 的 `.md` 文本 loader，支持将 Markdown 作为字符串导入
+
 ## [0.6.3] - 2026-03-26
 
 ### Added
