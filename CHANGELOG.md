@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.6.4] - 2026-03-26
+
 ### Added
 
 - 模板新增 `src/tools/demo-skill.md` 文档，并在 `demoTool` 中加入 `skill` 字段以演示 Tool Skill 用法
@@ -310,7 +312,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Code quality checks with Biome.
 - Automated release workflow via GitHub Actions.
 
-[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.3...HEAD
+[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.4...HEAD
+[0.6.4]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.3...v0.6.4
 [0.6.3]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.2...v0.6.3
 [0.6.2]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.1...v0.6.2
 [0.6.1]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.0...v0.6.1
