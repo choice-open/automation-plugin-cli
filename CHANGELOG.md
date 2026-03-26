@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.6.3] - 2026-03-26
+
+### Added
+
+- 模板更新：为插件开发补充更完整的文档与参考资料，重点覆盖**声明式参数（declarative parameters）**与插件开发实践（`atomemo-plugin-development` skill）
+
 ## [0.6.2] - 2026-02-26
 
 ### Fixed
@@ -295,7 +301,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Code quality checks with Biome.
 - Automated release workflow via GitHub Actions.
 
-[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.2...HEAD
+[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.3...HEAD
+[0.6.3]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.2...v0.6.3
 [0.6.2]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.1...v0.6.2
 [0.6.1]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.5.12...v0.6.0
