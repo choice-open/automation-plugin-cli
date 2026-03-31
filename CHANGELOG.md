@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.6.5] - 2026-03-31
+
+### Added
+
+- `atomemo-plugin-development` skill 模板新增评估配置 `evals.json`
+
+### Changed
+
+- 更新 `atomemo-plugin-development` 声明式参数相关参考文档（`credential.md`、`declarative-parameters-examples.md`、`declarative-parameters-property-base.md`、`declarative-parameters-resource-mapper.md`）
+- 更新 `src/templates/common/skills-lock.json`，与 skill 模板引用保持一致
+
 ## [0.6.4] - 2026-03-26
 
 ### Added
@@ -312,7 +323,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Code quality checks with Biome.
 - Automated release workflow via GitHub Actions.
 
-[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.4...HEAD
+[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.5...HEAD
+[0.6.5]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.4...v0.6.5
 [0.6.4]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.3...v0.6.4
 [0.6.3]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.2...v0.6.3
 [0.6.2]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.1...v0.6.2

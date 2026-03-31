@@ -380,6 +380,9 @@ resource_mapping: {
         display_name: { en_US: column.name },
         type: column.type,
         required: column.required,
+        ui: {
+          hint: column.description ? { en_US: column.description } : null,
+        },
       })),
     }
   },
