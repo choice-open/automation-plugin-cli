@@ -135,6 +135,8 @@ If a provider uses OAuth2, set `oauth2: true` and include the required storage f
 - `refresh_token` (`encrypted_string`)
 - `expires_at` (`integer`)
 
+Keep these token fields in the credential `parameters` definition even if you do not expose them in the UI — the Hub needs them to persist OAuth tokens.
+
 You must also implement:
 
 1. `oauth2_build_authorize_url`
