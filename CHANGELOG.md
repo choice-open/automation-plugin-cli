@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.6.6] - 2026-04-02
+
+### Changed
+
+- Updated `src/templates/common/.gitignore.eta` so generated templates ignore `.agents` and `.claude`.
+
 ## [0.6.5] - 2026-03-31
 
 ### Added
@@ -323,7 +329,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Code quality checks with Biome.
 - Automated release workflow via GitHub Actions.
 
-[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.5...HEAD
+[Unreleased]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.6...HEAD
+[0.6.6]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.5...v0.6.6
 [0.6.5]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.4...v0.6.5
 [0.6.4]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.3...v0.6.4
 [0.6.3]: https://github.com/choice-open/atomemo-plugin-cli/compare/v0.6.2...v0.6.3
