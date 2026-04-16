@@ -252,7 +252,7 @@ export default class PluginInit extends Command {
   private async collectURL(name: string) {
     return await input({
       message: "What is the repository URL address (Optional):",
-      default: `https://github.com/choice-open/atomemo-official-plugins/plugins/${name}`,
+      default: `https://github.com/choice-open/atomemo-official-plugins/tree/main/plugins/${name}`,
       prefill: "tab",
       validate: (value) => {
         if (value === "") {
